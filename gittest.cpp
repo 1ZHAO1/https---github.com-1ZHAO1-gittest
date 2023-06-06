@@ -86,6 +86,7 @@ void heapSort(int *arr, int n)
         }
     }
 }
+int j=1;
 //写出二分查找的代码
 int binarySearch(int *arr, int n, int target)
 {
