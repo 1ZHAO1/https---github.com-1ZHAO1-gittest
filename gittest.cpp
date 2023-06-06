@@ -13,7 +13,7 @@
 //写出快速排序的代码
 void quickSort(int *arr, int left, int right)
 {
-    if (left >= right)
+    if (left <= right)
         return;
     int i = left, j = right;
     int key = arr[left];
