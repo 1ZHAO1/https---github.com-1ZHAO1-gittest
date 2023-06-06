@@ -55,3 +55,50 @@ void mergeSort(int *arr, int left, int right)
         arr[i] = temp[k];
     delete[] temp;
 }
+//写出堆排序的代码
+void heapSort(int *arr, int n)
+{
+    for (int i = n / 2 - 1; i >= 0; i--)
+    {
+        int j = i;
+        while (j * 2 + 1 < n)
+        {
+            int k = j * 2 + 1;
+            if (k + 1 < n && arr[k] < arr[k + 1])
+                k++;
+            if (arr[j] < arr[k])
+                swap(arr[j], arr[k]);
+            j = k;
+        }
+    }
+    for (int i = n - 1; i > 0; i--)
+    {
+        swap(arr[0], arr[i]);
+        int j = 0;
+        while (j * 2 + 1 < i)
+        {
+            int k = j * 2 + 1;
+            if (k + 1 < i && arr[k] < arr[k + 1])
+                k++;
+            if (arr[j] < arr[k])
+                swap(arr[j], arr[k]);
+            j = k;
+        }
+    }
+}
+//写出二分查找的代码
+int binarySearch(int *arr, int n, int target)
+{
+    int left = 0, right = n - 1;
+    while (left <= right)
+    {
+        int mid = (left + right) >> 1;
+        if (arr[mid] == target)
+            return mid;
+        else if (arr[mid] < target)
+            left = mid + 1;
+        else
+            right = mid - 1;
+    }
+    return -1;
+}
